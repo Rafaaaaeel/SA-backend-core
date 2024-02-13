@@ -6,6 +6,4 @@ public class JwtConfiguration
     public string IssuerSigningKey { get; set; } = string.Empty;
     public bool ValidateIssuer { get; set; }
     public bool ValidateAudience { get; set; }
-
-    //     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetSection("AppSettings:Token").Value!)),
 }
