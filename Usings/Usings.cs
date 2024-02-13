@@ -1,7 +1,11 @@
-global using System.Net;
 global using static System.Net.HttpStatusCode;
-global using Microsoft.Extensions.DependencyInjection;
-global using Sa.Core.Configurations;
+global using System.Net;
 global using System.Text;
+global using Microsoft.Extensions.DependencyInjection;
 global using Microsoft.AspNetCore.Authentication.JwtBearer;
 global using Microsoft.IdentityModel.Tokens;
+global using Microsoft.AspNetCore.Hosting;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.AspNetCore.Builder;
+global using Microsoft.Extensions.Hosting;
+global using Sa.Core.Configurations;
