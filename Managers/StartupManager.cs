@@ -31,4 +31,18 @@ public class StartupManager
         });
     }
 
+    public async Task<AppSettings> GetSettings() 
+    {
+        return await GetSettings<AppSettings>();
+    }
+
+    public async Task<T> GetSettings<T>() where T : AppSettings, new()
+    {
+        T defaultConfiguration = new();
+        
+        _configuration.GetSection("DefaultConfiguration").Bind(defaultConfiguration);
+
+        return await new ValueTask<T>(defaultConfiguration);;
+    }
+
 }

@@ -7,6 +7,7 @@ public static class Configurator
         IConfigurationBuilder builder = new ConfigurationBuilder()
             .SetBasePath(environment.ContentRootPath)
             .AddJsonFile($"appsettings.json")
+            .AddJsonFile($"appsettings.{environment.EnvironmentName}.json", optional: true, reloadOnChange: false)
             .AddEnvironmentVariables();
 
         return builder.Build();
