@@ -20,7 +20,7 @@ public class StartupManager
         }
 
         app.UseHttpsRedirection();
-
+   
         app.UseAuthentication();
 
         app.UseAuthorization();
