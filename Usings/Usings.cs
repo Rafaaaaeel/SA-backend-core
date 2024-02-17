@@ -12,3 +12,4 @@ global using Microsoft.Extensions.Hosting;
 global using Microsoft.Extensions.Caching.Distributed;
 global using Sa.Core.Configurations;
 global using Sa.Core.Helpers;
+global using Sa.Core.Cache;

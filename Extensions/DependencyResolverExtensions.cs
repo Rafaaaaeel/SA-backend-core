@@ -1,5 +1,3 @@
-
-
 namespace Sa.Core.Extensions;
 
 public static class DependencyResolverExtensions
@@ -16,5 +14,16 @@ public static class DependencyResolverExtensions
         });
 
         return services;    
+    }
+
+    public static IServiceCollection AddRedisCache<T>(this IServiceCollection services, T appSettings) where T : AppSettings
+    {
+        services.AddSingleton<ICoreCacheService, CoreCacheService>();
+
+        services.AddStackExchangeRedisCache(opt => {
+            opt.Configuration = appSettings.Redis.ConnectionString;
+        });
+
+        return services;
     }
 }
