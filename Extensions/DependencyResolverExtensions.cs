@@ -16,6 +16,30 @@ public static class DependencyResolverExtensions
         return services;    
     }
 
+    public static IServiceCollection AddDefaultServices<T>(this IServiceCollection services, T appSettings) where T : AppSettings 
+    {
+        
+        services.AddControllers()
+            .AddNewtonsoftJson(options =>
+        {
+            options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore; 
+            options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore; 
+        });
+
+        services.AddEndpointsApiExplorer();
+
+        services.AddSwaggerGen();
+
+        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+        if (appSettings.Redis is not null)
+        {
+            services.AddRedisCache(appSettings);
+        }
+
+        return services;
+    }
+    
     public static IServiceCollection AddRedisCache<T>(this IServiceCollection services, T appSettings) where T : AppSettings
     {
         services.AddSingleton<ICoreCacheService, CoreCacheService>();

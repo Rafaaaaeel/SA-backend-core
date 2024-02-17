@@ -10,6 +10,7 @@ global using Microsoft.Extensions.Configuration;
 global using Microsoft.AspNetCore.Builder;
 global using Microsoft.Extensions.Hosting;
 global using Microsoft.Extensions.Caching.Distributed;
+global using Newtonsoft.Json;
 global using Sa.Core.Configurations;
 global using Sa.Core.Helpers;
 global using Sa.Core.Cache;
