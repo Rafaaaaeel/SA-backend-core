@@ -1,5 +1,3 @@
-using System.IO.Compression;
-
 namespace Sa.Core.Helpers;
 
 public static class CompactString
