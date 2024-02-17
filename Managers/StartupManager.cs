@@ -13,6 +13,10 @@ public class StartupManager
 
     public void Configure(IApplicationBuilder app, AppSettings appSettings)
     {
+        app.UseWebSockets();
+
+        app.UseRouting();
+        
         if (_environment.IsDevelopment())
         {
             app.UseSwagger();
