@@ -14,9 +14,8 @@ public class StartupManager
     public void Configure(IApplicationBuilder app, AppSettings appSettings)
     {
         app.UseWebSockets();
-
         app.UseRouting();
-        
+
         if (_environment.IsDevelopment())
         {
             app.UseSwagger();
@@ -24,9 +23,7 @@ public class StartupManager
         }
 
         app.UseHttpsRedirection();
-   
         app.UseAuthentication();
-
         app.UseAuthorization();
 
         app.UseEndpoints(endpoints => 
