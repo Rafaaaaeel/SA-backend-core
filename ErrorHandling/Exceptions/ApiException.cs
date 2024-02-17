@@ -15,5 +15,4 @@ public abstract class ApiException : Exception
     protected ApiException(HttpStatusCode status, string message = ApiErrorMessages.GenericError, IEnumerable<string>? logMessages = null) : this((int) status, message, logMessages)
     {
     }
-
 }

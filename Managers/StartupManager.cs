@@ -43,18 +43,31 @@ public class StartupManager
         _configuration.GetSection("DefaultConfiguration").Bind(defaultConfiguration);
 
         ConfigureSqlConnection(defaultConfiguration);
+        ConfigureRedisConnection(defaultConfiguration);
 
         return await new ValueTask<T>(defaultConfiguration);;
     }
 
     public void ConfigureSqlConnection(AppSettings appSettings)
     {
-        if (appSettings.sql is null) return;
+        if (appSettings.Sql is null) return;
 
         string? connectionString = _configuration.GetConnectionString("DefaultConnection");
 
         if (connectionString is null) throw new NullReferenceException();
 
-        appSettings.sql.ConnectionString = connectionString;
+        appSettings.Sql.ConnectionString = connectionString;
     }
+
+    public void ConfigureRedisConnection(AppSettings appSettings)
+    {
+        if (appSettings.Redis is null) return;
+
+        string? connectionString = _configuration.GetConnectionString("DefaultConnectionRedis");
+
+        if (connectionString is null) return;
+
+        appSettings.Redis.ConnectionString = connectionString;
+    }
+
 }
