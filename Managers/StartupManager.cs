@@ -65,7 +65,7 @@ public class StartupManager
 
         string? connectionString = _configuration.GetConnectionString("DefaultConnectionRedis");
 
-        if (connectionString is null) return;
+        if (connectionString is null) throw new NullReferenceException();
 
         appSettings.Redis.ConnectionString = connectionString;
     }
