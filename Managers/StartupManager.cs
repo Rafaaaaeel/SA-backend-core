@@ -51,24 +51,24 @@ public class StartupManager
 
     public void ConfigureSqlConnection(AppSettings appSettings)
     {
-        if (appSettings.Sql is null) return;
+        if (appSettings.SqlConfiguration is null) return;
 
         string? connectionString = _configuration.GetConnectionString("DefaultConnection");
 
         if (connectionString is null) throw new NullReferenceException();
 
-        appSettings.Sql.ConnectionString = connectionString;
+        appSettings.SqlConfiguration.ConnectionString = connectionString;
     }
 
     public void ConfigureRedisConnection(AppSettings appSettings)
     {
-        if (appSettings.Redis is null) return;
+        if (appSettings.RedisConfiguration is null) return;
 
         string? connectionString = _configuration.GetConnectionString("DefaultConnectionRedis");
 
         if (connectionString is null) throw new NullReferenceException();
 
-        appSettings.Redis.ConnectionString = connectionString;
+        appSettings.RedisConfiguration.ConnectionString = connectionString;
     }
 
 }

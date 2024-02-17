@@ -3,6 +3,7 @@ global using System.Net;
 global using System.Text;
 global using System.IO.Compression;
 global using System.Security.Claims;
+global using System.Text.Json;
 global using Microsoft.Extensions.DependencyInjection;
 global using Microsoft.AspNetCore.Authentication.JwtBearer;
 global using Microsoft.IdentityModel.Tokens;
