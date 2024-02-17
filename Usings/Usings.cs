@@ -2,6 +2,7 @@ global using static System.Net.HttpStatusCode;
 global using System.Net;
 global using System.Text;
 global using System.IO.Compression;
+global using System.Security.Claims;
 global using Microsoft.Extensions.DependencyInjection;
 global using Microsoft.AspNetCore.Authentication.JwtBearer;
 global using Microsoft.IdentityModel.Tokens;
