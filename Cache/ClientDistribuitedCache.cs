@@ -14,6 +14,11 @@ public class ClientDistribuitedCache : IClientCache
         _cacheService = cacheService;
     }
 
+    public async Task AsyncDeleteCachedObject(string key, CancellationToken cancellationToken = default)
+    {
+        await _cacheService.RemoveAsync(key, cancellationToken);
+    }
+
     public async Task<T> AsyncGetCachedObject<T>(string key, CancellationToken cancellationToken = default)
     {
         var cachedData = await _cacheService.GetStringAsync(key, cancellationToken) ?? throw new NullReferenceException();
