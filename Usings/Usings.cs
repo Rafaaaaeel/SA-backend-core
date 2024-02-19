@@ -16,3 +16,4 @@ global using Newtonsoft.Json;
 global using Sa.Core.Configurations;
 global using Sa.Core.Helpers;
 global using Sa.Core.Cache;
+global using Sa.Core.Managers;

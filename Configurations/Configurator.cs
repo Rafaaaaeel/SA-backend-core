@@ -8,7 +8,8 @@ public static class Configurator
             .SetBasePath(environment.ContentRootPath)
             .AddJsonFile($"appsettings.json")
             .AddJsonFile($"appsettings.{environment.EnvironmentName}.json", optional: true, reloadOnChange: false)
-            .AddEnvironmentVariables();
+            .AddEnvironmentVariables()
+            .AddUserSecrets<StartupManager>();
 
         return builder.Build();
     }
