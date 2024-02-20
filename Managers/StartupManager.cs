@@ -1,3 +1,5 @@
+using Sa.Core.Extensions;
+
 namespace Sa.Core.Managers;
 
 public class StartupManager
@@ -25,6 +27,8 @@ public class StartupManager
         app.UseHttpsRedirection();
         app.UseAuthentication();
         app.UseAuthorization();
+
+        app.UseApiErrorHandlerMiddleware();
 
         app.UseEndpoints(endpoints => 
         {
